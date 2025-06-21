@@ -1,0 +1,548 @@
+/* Importação de Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+
+/* Variáveis CSS para Cores */
+:root {
+    --primary-dark: #0A0A0A; /* Preto muito escuro, quase total */
+    --secondary-dark: #1A1A1A; /* Cinza chumbo escuro */
+    --accent-light: #FFD700; /* Dourado para destaque (remete ao anel do eclipse) */
+    --text-light: #E0E0E0; /* Texto claro para contraste */
+    --text-secondary: #B0B0B0; /* Texto secundário */
+    --btn-bg: #4A0080; /* Um roxo escuro/azulado para botões */
+    --btn-hover: #6A00B0; /* Roxo mais claro no hover */
+    --border-color: #333;
+    --tag-bg: #222; /* Cor de fundo para tags de tecnologia */
+    --tag-text: #FFD700; /* Cor do texto para tags de tecnologia */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave para as âncoras */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+}
+
+/* Containers e Layout Geral */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    color: var(--accent-light);
+    position: relative;
+    display: inline-block;
+}
+
+.content-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-light);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.primary-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-light);
+}
+
+.primary-btn:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--accent-light);
+    border: 2px solid var(--accent-light);
+}
+
+.secondary-btn:hover {
+    background-color: var(--accent-light);
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Header e Navegação */
+.header {
+    background-color: rgba(10, 10, 10, 0.9); /* Fundo semi-transparente */
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-light);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section - COM IMAGEM DE FUNDO ECLIPSE */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    /* Propriedades para a imagem de fundo do eclipse */
+    background-image: url('img/eclipse-background.jpg'); /* Caminho para sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* Opcional: faz a imagem de fundo ficar fixa ao rolar */
+}
+
+/* Sobreposição escura para melhorar a legibilidade do texto na hero section */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1; /* Garante que a sobreposição esteja acima da imagem, mas abaixo do conteúdo */
+}
+
+.hero-content {
+    z-index: 10; /* Garante que o conteúdo esteja acima da sobreposição */
+    position: relative;
+    animation: fadeInScale 1.5s ease-out forwards;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    color: var(--accent-light);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); /* Brilho sutil */
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+}
+
+/* Esconde o efeito de eclipse antigo, já que temos uma imagem */
+.hero-eclipse-effect {
+    display: none;
+}
+
+/* Animações */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+}
+
+/* Seção Sobre Mim */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent-light);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.about-content p {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+/* Nova Seção de Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    background-color: var(--secondary-dark);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.skill-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens da lista */
+    gap: 10px; /* Espaçamento entre os itens */
+}
+
+.skill-card li {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    white-space: nowrap; /* Evita quebras de linha em tags longas */
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Seção de Projetos (atualizada com tags de tecnologia) */
+.section-description {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.project-card {
+    background-color: var(--secondary-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    display: flex; /* Flexbox para layout interno do card */
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5em;
+    color: var(--accent-light);
+    margin: 15px 20px 10px;
+}
+
+.project-card p {
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    margin: 0 20px 20px;
+    flex-grow: 1; /* Faz o parágrafo ocupar o espaço restante */
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 20px 15px;
+}
+
+.project-tech-stack span {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.project-card .btn {
+    margin: 0 20px 20px;
+    font-size: 0.9em;
+    align-self: flex-start; /* Alinha o botão à esquerda dentro do card */
+}
+.project-card .btn:not(:last-child) {
+    margin-right: 10px; /* Espaço entre botões no mesmo card */
+}
+
+/* Seção de Contato */
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: var(--text-secondary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.contact-form button {
+    align-self: center;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    color: var(--accent-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--btn-hover);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-dark);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-email-link {
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-email-link:hover {
+    color: var(--btn-hover);
+    text-decoration: underline;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 0 15px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content p {
+        text-align: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .content-section h2 {
+        font-size: 2em;
+    }
+}

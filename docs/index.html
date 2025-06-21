@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Pedro - Portfólio de Desenvolvedor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">João Pedro Souza dos Anjos</a>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>JOÃO PEDRO SOUZA DOS ANJOS</h1>
+                <p>Desenvolvedor de Software em Formação</p>
+                <a href="#projects" class="btn primary-btn">Ver Meus Projetos</a>
+            </div>
+            <!-- O efeito hero-eclipse-effect será controlado pelo CSS, com a imagem de fundo -->
+        </section>
+
+        <section id="about" class="about-section content-section">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <div class="about-content">
+                    <img src="https://via.placeholder.com/200" alt="Sua Foto" class="profile-pic">
+                    <p>Olá! Sou João Pedro, um **futuro desenvolvedor de software** apaixonado por tecnologia e desafios. Atualmente cursando FATEC Desenvolvimento de Software e Multiplataforma, estou imerso no universo da programação, buscando constantemente aprender e aplicar novas tecnologias para criar soluções inovadoras. Meu foco é full-stack e adoro transformar ideias complexas em interfaces e sistemas funcionais. Explore meus projetos para ver o que venho construindo!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section content-section">
+            <div class="container">
+                <h2>Minhas Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Linguagens</h3>
+                        <ul>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <!-- Adicione outras linguagens que você conhece -->
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Frameworks & Bibliotecas</h3>
+                        <ul>
+                            <li>React</li>
+                            <li>Node.js / Express.js</li>
+                            <!-- Adicione outros frameworks/libs -->
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Ferramentas & Outros</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>SQL / NoSQL Databases</li>
+                            <li>Metodologias Ágeis (Scrum)</li>
+                            <!-- Adicione outras ferramentas/habilidades -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section content-section">
+            <div class="container">
+                <h2>Meus Projetos</h2>
+                <p class="section-description">Confira alguns dos projetos que desenvolvi durante minha jornada acadêmica e pessoal. Cada projeto reflete meu aprendizado e paixão por construir!</p>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/333/FFF?text=Projeto+Web+App" alt="Projeto 1">
+                        <h3>MiniCurso de Scrum</h3>
+                        <p>Um website com formato de curso que foca em ensinar Scrum, com autenticação de usuário e certificação ao completar.</p>
+                        <div class="project-tech-stack">
+                            <span>#Html & CSS</span><span>#Node.js</span><span>#PostgreSQL</span>
+                        </div>
+                        <a href="https://github.com/DevsScrumAcademy/1-DSM---DevsAcademy" target="_blank" class="btn secondary-btn">Ver Código</a>
+                        <!-- Se houver demo online, adicione: -->
+                        <!-- <a href="#" target="_blank" class="btn primary-btn">Ver Projeto (Demo)</a> -->
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/333/FFF?text=API+RESTful" alt="Projeto 2">
+                        <h3>Turi - Mapa de Queimadas </h3>
+                        <p>Desenvolvimento de um website informativo sobre focos de queimadas, risco de fogo e áreas queimadas. Contendo mapa e gráficos, para melhor visualização.</p>
+                        <div class="project-tech-stack">
+                            <span>#TypeScript</span><span>#React</span><span>#PostgreSQL</span>
+                        </div>
+                        <a href="https://github.com/Danilo-Fatec/Myopes" target="_blank" class="btn secondary-btn">Ver Código</a>
+                        <!-- Se houver demo online, adicione: -->
+                        <!-- <a href="#" target="_blank" class="btn primary-btn">Ver Projeto (Demo)</a> -->
+                    </div>
+                    <!-- Adicione mais projetos aqui -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section content-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Estou em busca de desafios e oportunidades para aplicar e expandir meu conhecimento. Vamos conversar!</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu E-mail" required>
+                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn primary-btn">Enviar Mensagem</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/joao-pedro-5a31a7280?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Shynj0" target="_blank">GitHub</a>
+                    <a href="mailto:jpdosanjos0203@gmail.com">Email</a>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 João Pedro Souza dos Anjos. Desenvolvido com paixão por código.</p>
+        <p>Contato: <a href="mailto:jpdosanjos0203@gmail.com" class="footer-email-link">jpdosanjos0203@gmail.com</a></p>
+    </footer>
+</body>
+</html>
