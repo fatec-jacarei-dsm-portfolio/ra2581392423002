@@ -1,152 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Pedro - Portfólio</title>
+    <title>João Pedro | Dev Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <a href="#" class="logo">João Pedro Souza dos Anjos</a>
-            <ul class="nav-links">
-                <li><a href="#about">Sobre Mim</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+        <div class="logo">&lt;JoaoPedro<span class="highlight">.DEV</span> /&gt;</div>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Tech</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">
+                    <span class="relative flex h-2 w-2 mr-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                    </span>
+                    Disponível 
+                </span>
+                <h1>Construindo o futuro com <span class="highlight">precisão e código</span>.</h1>
+                <p id="typing-text"></p>
+                <div class="hero-btns">
+                    <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                    <a href="#contato" class="btn-secondary">Fale Comigo</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-container">
+                <div class="blob-outline"></div>
+                <div class="hero-image">
+                    <img src="assets/perfil.jpeg" alt="">
+                    <img src="https://via.placeholder.com/400" alt="João Pedro Anjos">
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-content">
-                <h1>JOÃO PEDRO SOUZA DOS ANJOS</h1>
-                <p>Desenvolvedor de Software em Formação</p>
-                <a href="#projects" class="btn primary-btn">Ver Meus Projetos</a>
-            </div>
-            <!-- O efeito hero-eclipse-effect será controlado pelo CSS, com a imagem de fundo -->
-        </section>
-
-        <section id="about" class="about-section content-section">
-            <div class="container">
-                <h2>Sobre Mim</h2>
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Minha Trajetória</h2>
+            <div class="about-wrapper">
                 <div class="about-content">
-                    <img src="images/perfi.jpeg" alt="Sua Foto" class="profile-pic">
-                    <p>Olá! Sou João Pedro, um **futuro desenvolvedor de software** apaixonado por tecnologia e desafios. Atualmente cursando FATEC Desenvolvimento de Software e Multiplataforma, estou imerso no universo da programação, buscando constantemente aprender e aplicar novas tecnologias para criar soluções inovadoras. Meu foco é full-stack e adoro transformar ideias complexas em interfaces e sistemas funcionais. Explore meus projetos para ver o que venho construindo!</p>
+                    <p>Meu primeiro contato com o desenvolvimento de software aconteceu nos corredores da <strong>FATEC Jacareí</strong>, e ali eu descobri minha verdadeira paixão. Atualmente no 4º semestre de Desenvolvimento de Software Multiplataforma (formação em Julho de 2027), mergulhei de cabeça no ecossistema da tecnologia.</p>
+                    <p>O que me diferencia? A prática constante. Através da metodologia ABP, transformo cada semestre acadêmico em um laboratório de inovação, entregando projetos reais que simulam os desafios do mercado. Sou um entusiasta do aprendizado contínuo e busco minha primeira oportunidade profissional para aplicar minha base sólida e evoluir ao lado de times experientes.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item"><span>1.5+</span> Anos de Estudo</div>
+                    <div class="stat-item"><span>5+</span> Projetos Reais</div>
+                    <div class="stat-item"><span>4º</span> Semestre FATEC</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" class="skills-section content-section">
-            <div class="container">
-                <h2>Minhas Habilidades</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Linguagens</h3>
-                        <ul>
-                            <li>JavaScript</li>
-                            <li>TypeScript</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <!-- Adicione outras linguagens que você conhece -->
-                        </ul>
+    <section id="habilidades" class="alt-bg">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">Tecnologias que utilizo para dar vida a ideias.</p>
+            <div class="tech-grid">
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" /> JavaScript</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" /> TypeScript</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React.js</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" /> Node.js</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" /> Linguagem C</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL" /> SQL / NoSQL</div>
+                <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git & GitHub</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <div class="container">
+            <div class="projects-header">
+                <div>
+                    <h2 class="section-title">Portfólio</h2>
+                    <p class="section-subtitle">Destaques da minha jornada de desenvolvimento.</p>
+                </div>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="academico">Acadêmicos</button>
+                    <button class="filter-btn" data-filter="pessoal">Pessoais</button>
+                </div>
+            </div>
+
+            <div class="projects-carousel" id="project-container">
+                <!-- Projeto 1 -->
+                <div class="card" data-categoria="academico">
+                    <div class="card-image">
+                        <img src="assets/SiteScrum-Ex.png" alt="Scrum Academy">
+                        <div class="card-overlay"></div>
                     </div>
-                    <div class="skill-card">
-                        <h3>Frameworks & Bibliotecas</h3>
-                        <ul>
-                            <li>React</li>
-                            <li>Node.js / Express.js</li>
-                            <!-- Adicione outros frameworks/libs -->
-                        </ul>
+                    <div class="card-content">
+                        <span class="category-tag">Acadêmico (1º Semestre)</span>
+                        <h3>Scrum Academy</h3>
+                        <p>Plataforma educativa gamificada sobre o framework Scrum, oferecendo conceito e quiz em formato de mini-curso.</p>
+                        <div class="card-footer">
+                            <div class="tech-tags"><span>JS</span><span>HTML</span><span>CSS</span></div>
+                            <a href="https://github.com/DevsScrumAcademy/1-DSM---DevsAcademy" target="_blank" class="github-link">Code ↗</a>
+                        </div>
                     </div>
-                    <div class="skill-card">
-                        <h3>Ferramentas & Outros</h3>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>VS Code</li>
-                            <li>SQL / NoSQL Databases</li>
-                            <li>Metodologias Ágeis (Scrum)</li>
-                            <!-- Adicione outras ferramentas/habilidades -->
-                        </ul>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="card" data-categoria="academico">
+                    <div class="card-image">
+                        <img src="assets/Turi-Ex.jpeg" alt="Projeto Turi">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="category-tag">Acadêmico (2º Semestre)</span>
+                        <h3>Turi</h3>
+                        <p>Web app de monitoramento ambiental que visualiza focos de calor e queimadas em um mapa interativo utilizando dados reais.</p>
+                        <div class="card-footer">
+                            <div class="tech-tags"><span>ReactTS</span><span>Python</span><span>SQL</span></div>
+                            <a href="https://github.com/Shynj0/Turi" target="_blank" class="github-link">Code ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="card" data-categoria="academico">
+                    <div class="card-image">
+                        <img src="assets/GeoInsight.png" alt="GeoInsight INPE">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="category-tag">Acadêmico & INPE (3º Semestre)</span>
+                        <h3>GeoInsight</h3>
+                        <p>Dashboard desenvolvido em parceria com o INPE para visualizar e analisar dados de vegetação e clima por região.</p>
+                        <div class="card-footer">
+                            <div class="tech-tags"><span>TypeScript</span><span>NoSQL</span><span>Charts</span></div>
+                            <a href="https://github.com/octacodeteam/ABP3" target="_blank" class="github-link">Code ↗</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projeto 4 -->
+                <div class="card" data-categoria="academico">
+                    <div class="card-image">
+                        <img src="assets/HypoHealth.png" alt="HypoHealth">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="category-tag">Acadêmico (4º Semestre)</span>
+                        <h3>HypoHealth</h3>
+                        <p>App de medicação integrado a uma caixa de remedios, onde libera o remédio no dia e horário que o usuário deve tomar.</p>
+                        <div class="card-footer">
+                            <div class="tech-tags"><span>ReactTS</span><span>Docker</span><span>SQL</span><span>C</span><span>ESP32</span><span>MQTT</span></div>
+                            <a href="https://github.com/HypogramTechnologies/HypoHealth.git" target="_blank" class="github-link">Code ↗</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="projects-section content-section">
-            <div class="container">
-                <h2>Meus Projetos</h2>
-                <p class="section-description">Confira alguns dos projetos que desenvolvi durante minha jornada acadêmica e pessoal. Cada projeto reflete meu aprendizado e paixão por construir!</p>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <img src="images/SiteScrum-Ex.png" alt="Projeto 1">
-                        <h3>MiniCurso de Scrum</h3>
-                        <p>Um website com formato de curso que foca em ensinar Scrum, com autenticação de usuário e certificação ao completar.</p>
-                        <p class="my-contribution">
-                            Minha Participação: Participei da concepção do design do site no Figma e da criação visual do certificado. Também desenvolvi funcionalidades para avaliação do aluno, incluindo a nota mínima para aprovação e a exigência de aprovação em todos os módulos para a geração do certificado.
-                        </p>
-                        <div class="project-tech-stack">
-                            <span>#Html & CSS</span><span>#Node.js</span><span>#PostgreSQL</span>
-                        </div>
-                        <a href="https://github.com/DevsScrumAcademy/1-DSM---DevsAcademy" target="_blank" class="btn secondary-btn">Ver Código</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="images/Turi-Ex.jpeg" alt="Projeto 2">
-                        <h3>Turi - Mapa de Queimadas </h3>
-                        <p>Desenvolvimento de um website informativo sobre focos de queimadas, risco de fogo e áreas queimadas. Contendo mapa e gráficos, para melhor visualização.</p>
-                        <p class="my-contribution">
-                            Minha participação: Foi abrangente, incluindo a exportação e implementação de dados em mapas e gráficos no site, a criação do protótipo no Figma, o desenvolvimento de filtros por bioma e período, a definição de delimitadores para o mapa de biomas e o auxílio na inserção de dados em tabelas.
-                        </p>
-                        <div class="project-tech-stack">
-                            <span>#TypeScript</span><span>#React</span><span>#PostgreSQL</span>
-                        </div>
-                        <a href="https://github.com/Danilo-Fatec/Myopes" target="_blank" class="btn secondary-btn">Ver Código</a>
-                        <!-- Se houver demo online, adicione: -->
-                        <!-- <a href="#" target="_blank" class="btn primary-btn">Ver Projeto (Demo)</a> -->
-                    </div>
-                    <div class="project-card">
-                        <img src="images/Simulador-Financeiro.png" alt="Projeto 2">
-                        <h3>Simulador Financeiro </h3>
-                        <p>Simulador que calcula investimentos e empréstimos com base em: valor principal, taxa de juros, número de parcelas e regime de capitalização (juros simples ou compostos).</p>
-                        <p class="my-contribution">
-                            Minha Participação: Auxiliei no desenvolvimento do código, na execução de testes e na criação visual do projeto.                       
-                        </p>
-                        <div class="project-tech-stack">
-                            <span>#TypeScript</span><span>#React</span><span>#PostgreSQL</span>
-                        </div>
-                        <a href="https://github.com/GustavoHammes/Financias" target="_blank" class="btn secondary-btn">Ver Código</a>
-                </div>
-                <!-- Adicione mais projetos aqui -->
+    <footer id="contato">
+        <div class="container footer-content">
+            <h2>Vamos construir algo <span class="highlight">incrível</span> juntos?</h2>
+            <p>Estou em busca da minha primeira oportunidade como Estagiário ou Dev Júnior.</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-pedro-anjos/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Shynj0" target="_blank">GitHub</a>
+                <a href="mailto:joaoanjoswork@gmail.com">E-mail</a>
             </div>
-        </section>
-
-        <section id="contact" class="contact-section content-section">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <p>Estou em busca de desafios e oportunidades para aplicar e expandir meu conhecimento. Vamos conversar!</p>
-                <form class="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu E-mail" required>
-                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    <button type="submit" class="btn primary-btn">Enviar Mensagem</button>
-                </form>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/joao-pedro-5a31a7280?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/Shynj0" target="_blank">GitHub</a>
-                    <a href="mailto:jpdosanjos0203@gmail.com">Email</a>
-                    </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 João Pedro Souza dos Anjos. Desenvolvido com paixão por código.</p>
-        <p>Contato: <a href="mailto:jpdosanjos0203@gmail.com" class="footer-email-link">jpdosanjos0203@gmail.com</a></p>
+            
+            <a href="assets/cv.pdf" download class="cv-btn">Download CV (PDF)</a>
+            
+            <p class="copy">&copy; 2026 • Design & Código com 🧡 por João Pedro Anjos.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
