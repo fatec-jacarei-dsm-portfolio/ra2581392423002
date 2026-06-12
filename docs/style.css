@@ -41,7 +41,6 @@ nav a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
 
 .badge { display: inline-flex; align-items: center; background: rgba(255, 90, 31, 0.1); color: var(--orange); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(255, 90, 31, 0.3); margin-bottom: 1rem; }
 
-/* Status Dot Animation */
 .relative { position: relative; }
 .flex { display: flex; }
 .animate-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
@@ -66,19 +65,17 @@ nav a:hover { color: var(--text); background: rgba(255,255,255,0.03); }
 .btn-secondary { background: rgba(255,255,255,0.03); border: 1px solid var(--border); color: var(--text); padding: 14px 30px; text-decoration: none; border-radius: 6px; transition: var(--transition); font-weight: 600; font-size: 0.95rem; }
 .btn-secondary:hover { border-color: var(--text-dim); background: rgba(255,255,255,0.08); }
 
-/* LOCAL DA FOTO - CSS */
+/* Imagem Hero */
 .hero-image-container { position: relative; display: flex; justify-content: center; align-items: center; justify-self: center; }
-
 .hero-image { width: clamp(280px, 30vw, 380px); height: clamp(280px, 30vw, 380px); border-radius: 50%; overflow: hidden; border: 4px solid var(--card-bg); box-shadow: var(--shadow); position: relative; z-index: 2; transition: var(--transition); }
-.hero-image:hover { transform: scale(1.02); border-color: rgba(255, 90, 31, 0.5); }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+.hero-image:hover { border-color: rgba(255, 90, 31, 0.5); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Brilho atrás da foto */
 .blob-outline { position: absolute; width: 110%; height: 110%; background: var(--orange); filter: blur(70px); opacity: 0.25; border-radius: 50%; z-index: 1; animation: blobPulse 8s infinite alternate; }
 @keyframes blobPulse { 0% { transform: scale(1) translate(0, 0); opacity: 0.2; } 50% { transform: scale(1.05) translate(5px, -5px); opacity: 0.3; } 100% { transform: scale(0.95) translate(-5px, 5px); opacity: 0.2; } }
 
-/* Seções Geral */
-section { padding: 100px 0; overflow: hidden; }
+/* Seções */
+section { padding: 100px 0; }
 .alt-bg { background-color: var(--bg-alt); }
 .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--orange); margin-bottom: 0.5rem; font-weight: 700; }
 .section-subtitle { font-size: 2rem; font-weight: 700; color: var(--text); margin-bottom: 4rem; letter-spacing: -1px; }
@@ -114,29 +111,95 @@ section { padding: 100px 0; overflow: hidden; }
 .projects-carousel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; transition: var(--transition); }
 .projects-carousel::-webkit-scrollbar-thumb:hover { background: rgba(255, 90, 31, 0.5); }
 
-/* CARD MELHORADO */
-.card { min-width: 340px; max-width: 340px; flex-shrink: 0; scroll-snap-align: start; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; transition: var(--transition); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); position: relative; }
-.card:hover { transform: translateY(-10px); border-color: rgba(255, 90, 31, 0.3); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7); }
+/* EFEITO FLIP CARD EM 3D REVISADO */
+.card { 
+    min-width: 340px; 
+    max-width: 340px; 
+    height: 460px; /* Altura fixa obrigatória para elementos filhos com absolute */
+    flex-shrink: 0; 
+    scroll-snap-align: start; 
+    perspective: 1000px; /* Cria o ambiente de profundidade 3D */
+    background-color: transparent;
+}
 
-/* Efeito na Imagem do Card */
-.card-image { width: 100%; height: 190px; overflow: hidden; position: relative; background: #010101; border-bottom: 1px solid var(--border); }
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease; opacity: 0.8; filter: brightness(0.8) contrast(1.1); }
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d; /* Garante que os filhos fiquem no plano 3D */
+}
+
+/* Aciona o giro 3D no hover */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Propriedades compartilhadas pelas duas faces */
+.card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde a parte de trás da face quando virada */
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Customização da Frente do Card */
+.card-front .card-image { width: 100%; height: 190px; overflow: hidden; position: relative; background: #010101; border-bottom: 1px solid var(--border); }
+.card-front .card-image img { width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease; opacity: 0.8; filter: brightness(0.8) contrast(1.1); }
 .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(17,20,24,1) 0%, rgba(17,20,24,0) 50%); z-index: 1; }
+.card:hover .card-front img { transform: scale(1.1); opacity: 1; filter: brightness(1) contrast(1); }
 
-.card:hover .card-image img { transform: scale(1.1); opacity: 1; filter: brightness(1) contrast(1); }
-
-.card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; position: relative; z-index: 2; }
+.card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
 .category-tag { font-size: 0.7rem; color: var(--orange); text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; display: block; }
 .card h3 { margin-bottom: 0.75rem; font-size: 1.4rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
-.card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.5; }
+.card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.6; }
 
 .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: auto; }
 .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tech-tags span { font-size: 0.65rem; color: #a3a3a3; font-weight: 600; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; border: 1px solid transparent; transition: var(--transition); }
-.card:hover .tech-tags span { color: var(--orange); background: var(--orange-glow); border-color: rgba(255, 90, 31, 0.2); }
+.tech-tags span { font-size: 0.65rem; color: #a3a3a3; font-weight: 600; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; }
+.card:hover .tech-tags span { color: var(--orange); background: var(--orange-glow); }
 
-.github-link { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: var(--transition); opacity: 0.7; }
-.github-link:hover { color: var(--orange); opacity: 1; transform: translateX(2px); }
+.flip-hint { font-size: 0.75rem; color: var(--text-dim); opacity: 0.6; font-weight: 500; }
+
+/* Customização do Verso do Card */
+.card-back {
+    transform: rotateY(180deg); /* Já começa invertido para aparecer na rotação */
+    background: linear-gradient(145deg, #13171c 0%, #080a0d 100%);
+    border-color: rgba(255, 90, 31, 0.25);
+}
+.card-back p strong { color: var(--text); font-weight: 600; }
+
+.mt-auto { margin-top: auto; border-top: none; padding-top: 0; }
+
+/* Botão especial de ação dentro do verso do card */
+.btn-back-action {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--orange);
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 10px 0;
+    border-radius: 6px;
+    transition: var(--transition);
+    opacity: 1 !important;
+}
+.btn-back-action:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--orange-glow);
+}
 
 /* Footer */
 footer { background: #010203; padding: 80px 0 30px; text-align: center; border-top: 1px solid var(--border); }
@@ -145,8 +208,6 @@ footer p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
 .social-links { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .social-links a { color: var(--text); text-decoration: none; transition: var(--transition); font-weight: 600; font-size: 0.95rem; background: var(--card-bg); border: 1px solid var(--border); padding: 12px 24px; border-radius: 30px; }
 .social-links a:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-glow); transform: translateY(-3px); }
-.cv-btn { display: inline-block; background: transparent; border: 2px solid var(--orange); padding: 12px 30px; border-radius: 30px; color: var(--orange); text-decoration: none; font-weight: 700; transition: var(--transition); margin-bottom: 3rem; font-size: 0.95rem; }
-.cv-btn:hover { background: var(--orange); color: white; box-shadow: 0 5px 15px rgba(255, 90, 31, 0.3); }
 .copy { font-size: 0.8rem; color: #444; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 2rem; }
 
 /* Responsividade */
@@ -157,7 +218,7 @@ footer p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
     #typing-text { margin: 0 auto; }
     .about-wrapper { grid-template-columns: 1fr; gap: 30px; }
     .about-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-    .stat-item { flex: 1 min-width(200px); text-align: center; }
+    .stat-item { flex: 1; min-width: 200px; text-align: center; }
 }
 
 @media (max-width: 768px) {
@@ -166,7 +227,6 @@ footer p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
     nav li { opacity: 0; margin: 15px 0; }
     .menu-toggle { display: block; }
     .section-subtitle { font-size: 1.6rem; }
-    .filter-container { width: 100%; overflow-x: auto; justify-content: flex-start; padding: 5px 10px; }
     .card { min-width: 290px; max-width: 290px; }
 }
 
